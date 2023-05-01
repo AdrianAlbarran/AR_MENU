@@ -471,9 +471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedLibrary: {fileID: 11400000, guid: d845219c220b6f34ea2d7515b48d2a66,
     type: 2}
-  m_MaxNumberOfMovingImages: 0
-  m_TrackedImagePrefab: {fileID: 6923610023333811796, guid: fbfb48ddfc90b594caced86b1daa3df5,
-    type: 3}
+  m_MaxNumberOfMovingImages: 1
+  m_TrackedImagePrefab: {fileID: 0}
 --- !u!114 &1512040745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 4273919974830337044, guid: 44cea04f5c9cab54bbd0be46c3a42511,
     type: 3}
-  m_DetectionMode: -1
+  m_DetectionMode: 0
 --- !u!114 &1512040747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,4 +515,6 @@ MonoBehaviour:
   arObjectsToPlace:
   - {fileID: 6923610023333811796, guid: fbfb48ddfc90b594caced86b1daa3df5, type: 3}
   - {fileID: 7465208702979347425, guid: e683cd2c91584b144b69f3a8ff23056c, type: 3}
+  - {fileID: 6383999029362249095, guid: 7f438a106811af64686e94f2e442b899, type: 3}
+  - {fileID: 6112571604954941524, guid: bdc9c09c878b1e1489a14343f47d2457, type: 3}
   scaleFactor: {x: 0.1, y: 0.1, z: 0.1}

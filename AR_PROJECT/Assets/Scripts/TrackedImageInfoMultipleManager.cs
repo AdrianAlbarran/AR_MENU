@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class TrackedImageInfoMultipleManager : MonoBehaviour
@@ -15,9 +16,11 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
     //[SerializeField]
     //private Text imageTrackedText;
 
+    // Modelos a imprimir
     [SerializeField]
     private GameObject[] arObjectsToPlace;
 
+    // Tamaño de objetos 
     [SerializeField]
     private Vector3 scaleFactor = new Vector3(0.1f, 0.1f, 0.1f);
 
@@ -35,6 +38,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
         {
             GameObject newARObject = Instantiate(arObject, Vector3.zero, Quaternion.identity);
             newARObject.name = arObject.name;
+            // Guardas en el diccionario el gameobject del modelo
             arObjects.Add(arObject.name, newARObject);
         }
     }
@@ -60,13 +64,21 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
-            UpdateARImage(trackedImage);
+            if (trackedImage.trackingState == TrackingState.Tracking)
+            {
+                UpdateARImage(trackedImage);
+            }
+            else
+            {
+                arObjects[trackedImage.name].SetActive(false);
+            }
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
             arObjects[trackedImage.name].SetActive(false);
         }
+
     }
 
     private void UpdateARImage(ARTrackedImage trackedImage)
@@ -88,6 +100,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
             goARObject.SetActive(true);
             goARObject.transform.position = newPosition;
             goARObject.transform.localScale = scaleFactor;
+
             foreach (GameObject go in arObjects.Values)
             {
                 Debug.Log($"Go in arObjects.Values: {go.name}");
