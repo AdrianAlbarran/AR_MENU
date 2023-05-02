@@ -75,7 +75,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
-            arObjects[trackedImage.name].SetActive(false);
+            arObjects[trackedImage.name].GetComponent<RestuaranteManager>().CurrentModel().SetActive(false);
         }
 
     }
@@ -95,7 +95,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
     {
         if (arObjectsToPlace != null)
         {
-            GameObject goARObject = arObjects[name];
+            GameObject goARObject = arObjects[name].GetComponent<RestuaranteManager>().CurrentModel();
             goARObject.SetActive(true);
             goARObject.transform.position = newPosition;
             //goARObject.transform.localScale = scaleFactor;
