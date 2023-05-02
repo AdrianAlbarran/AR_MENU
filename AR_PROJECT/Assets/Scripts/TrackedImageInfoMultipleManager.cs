@@ -68,10 +68,9 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
             {
                 UpdateARImage(trackedImage);
             }
-            else
-            {
-                arObjects[trackedImage.name].SetActive(false);
-            }
+
+            //TENER CUIDADO CON CUANDO NO ESTE ANALIZANDO UNA IMAGEN CONCRETA, PARECE QUE CAPTA ALGUNA CON IDENTIFICADOR RANDOM
+            // else {arObjects[trackedImage.name].SetActive(false); } Esto da errores
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
