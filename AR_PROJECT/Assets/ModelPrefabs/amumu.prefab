@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1132539331201898255}
   - component: {fileID: 7523746245297108238}
   - component: {fileID: 5200627697356663731}
+  - component: {fileID: -4959064128178085238}
   m_Layer: 0
   m_Name: amumu
   m_TagString: Untagged
@@ -98,3 +99,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &-4959064128178085238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112571604954941524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96c9c80692c7647a4e1cbcc5281fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
