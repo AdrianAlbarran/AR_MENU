@@ -24,6 +24,7 @@ public class RestuaranteManager : MonoBehaviour
 
     private void changeModelOnSwipe(SwipeData swipeData)
     {
+        if(!TrackedImageInfoMultipleManager.imageDetected) { return; }
         if(swipeData.Direction == SwipeDirection.Left)
         {
             modelsArray[indexActivo].gameObject.SetActive(false);

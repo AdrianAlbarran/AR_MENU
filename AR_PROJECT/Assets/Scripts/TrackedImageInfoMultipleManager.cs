@@ -28,6 +28,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
 
     private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
 
+    public static bool imageDetected = false;
     void Awake()
     {
         //dismissButton.onClick.AddListener(Dismiss);
@@ -53,12 +54,14 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
         m_TrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
+ 
     //private void Dismiss() => welcomePanel.SetActive(false);
 
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
+            imageDetected = true;
             UpdateARImage(trackedImage);
         }
 
@@ -66,6 +69,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
         {
             if (trackedImage.trackingState == TrackingState.Tracking)
             {
+                imageDetected = true;
                 UpdateARImage(trackedImage);
             }
 
@@ -76,6 +80,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
         {
             arObjects[trackedImage.name].GetComponent<RestuaranteManager>().CurrentModel().SetActive(false);
+            imageDetected = false;
         }
 
     }

@@ -1,0 +1,7 @@
+1. Cuando una imagen desaparece, el objeto se mantiene y sigues podiendo cambiarlo con un swipe. Es decir, al desaparecer la imagen, no se mete en el foreach de remove
+
+        foreach (ARTrackedImage trackedImage in eventArgs.removed)
+        {
+            arObjects[trackedImage.name].GetComponent<RestuaranteManager>().CurrentModel().SetActive(false);
+            imageDetected = false;
+        }
