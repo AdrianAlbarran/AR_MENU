@@ -32,10 +32,10 @@ public class ModelController : MonoBehaviour
             {
                 float currentDistance = Vector2.Distance(touchZero.position, touchOne.position);
 
-                if (Mathf.Approximately(initialDistance, 0)|| Mathf.Approximately(initialDistance,currentDistance))
-                {
-                    return;
-                }
+                //if (Mathf.Approximately(initialDistance, 0) || Mathf.Approximately(initialDistance,currentDistance))
+                //{
+                //    return;
+                //}
 
                 float factor = currentDistance / initialDistance;
                 transform.localScale = initialScale * factor;

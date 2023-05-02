@@ -70,7 +70,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
             }
 
             //TENER CUIDADO CON CUANDO NO ESTE ANALIZANDO UNA IMAGEN CONCRETA, PARECE QUE CAPTA ALGUNA CON IDENTIFICADOR RANDOM
-            // else {arObjects[trackedImage.name].SetActive(false); } Esto da errores
+            // else {arObjects[trackedImage.name].SetActive(false); } Esto da errores   
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.removed)
@@ -98,7 +98,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
             GameObject goARObject = arObjects[name];
             goARObject.SetActive(true);
             goARObject.transform.position = newPosition;
-            goARObject.transform.localScale = scaleFactor;
+            //goARObject.transform.localScale = scaleFactor;
 
             foreach (GameObject go in arObjects.Values)
             {
