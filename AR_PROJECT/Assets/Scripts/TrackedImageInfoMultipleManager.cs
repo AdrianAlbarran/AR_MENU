@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,9 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
     private ARTrackedImageManager m_TrackedImageManager;
 
     private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
+
+    // Delegado para cuando detectamos un qr/imagen
+    public static Action onDetection;
 
     public static bool imageDetected = false;
     void Awake()
