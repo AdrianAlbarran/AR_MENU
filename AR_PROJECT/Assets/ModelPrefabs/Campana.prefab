@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 838298892838312160}
   - component: {fileID: 3612553794105699946}
   - component: {fileID: 572978277193106611}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Campana
   m_TagString: Untagged
   m_Icon: {fileID: 0}

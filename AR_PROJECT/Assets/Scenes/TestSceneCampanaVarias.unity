@@ -720,6 +720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn_prefab: {fileID: 7003107849416805518, guid: a2f3d9bf190eeec48bb943994b3eb5e6,
     type: 3}
+  planeManager: {fileID: 1512040746}
+  arCamera: {fileID: 887737940}
 --- !u!114 &1512040749
 MonoBehaviour:
   m_ObjectHideFlags: 0
