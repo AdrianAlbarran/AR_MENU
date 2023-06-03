@@ -40,7 +40,6 @@ public class RaycastARScript : MonoBehaviour
                     Vector3 newPos = new Vector3(hitPose.position.x, hitPose.position.y + 0.05f, hitPose.position.z); 
                     _spawned_object = Instantiate(spawn_prefab, hitPose.position, hitPose.rotation);
                     _spawned_object.name = "campana";
-                    _spawned_object.transform.localScale = new Vector3(0.12f, 0.12f, 0.12f);
                     _ObjectSpawned = true;
 
                     foreach (var plane in planeManager.trackables)
