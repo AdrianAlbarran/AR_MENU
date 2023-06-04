@@ -754,13 +754,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512040741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7828e64eb08719a4f9e7cf53bd6bc755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arObjectsToPlace:
-  - {fileID: 4030814453121316184, guid: 2240dbb2c5fdf25418e668d2c96b4af0, type: 3}
+  arObjectsToPlace: []
   scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!114 &1512040748
 MonoBehaviour:
@@ -774,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607cd5cbc3bd0fb4389109c23b145ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn_prefab: {fileID: 2215089585199832425, guid: 741dcaa1019610a4696509ef2599069b,
+  spawn_prefab: {fileID: 2215089585199832425, guid: 919b181884426ec41a92367024509ad7,
     type: 3}
   planeManager: {fileID: 1512040746}
   arCamera: {fileID: 887737940}
