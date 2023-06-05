@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -18,6 +19,8 @@ public class RaycastARScript : MonoBehaviour
     private ARRaycastManager raycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+    public GameObject gameCanvas;
+
     private void Start()
     {
         _ObjectSpawned = false;
@@ -27,7 +30,7 @@ public class RaycastARScript : MonoBehaviour
 
     }
 
-    private void Update()
+    public void addObject()
     {
         if (Input.touchCount == 1)
         {
@@ -37,7 +40,7 @@ public class RaycastARScript : MonoBehaviour
                 var hitPose = hits[0].pose;
                 if (!_ObjectSpawned)
                 {
-                    Vector3 newPos = new Vector3(hitPose.position.x, hitPose.position.y + 0.05f, hitPose.position.z); 
+                    Vector3 newPos = new Vector3(hitPose.position.x, hitPose.position.y + 0.05f, hitPose.position.z);
                     _spawned_object = Instantiate(spawn_prefab, hitPose.position, hitPose.rotation);
                     _spawned_object.name = "campana";
                     _ObjectSpawned = true;
@@ -49,7 +52,7 @@ public class RaycastARScript : MonoBehaviour
                         planeManager.enabled = false;
 
                     }
-                    
+
                 }
                 else
                 {
@@ -60,6 +63,10 @@ public class RaycastARScript : MonoBehaviour
                     if (test)
                     {
                         Debug.Log("Colisiono con: " + hitObject.transform.name);
+                        if(hitObject.transform.name== "campana")
+                        {
+                            gameCanvas.SetActive(true);
+                        }
                     }
                     else
                     {
@@ -68,6 +75,10 @@ public class RaycastARScript : MonoBehaviour
                 }
             }
         }
+    }
+    private void Update()
+    {
+        addObject(); 
     }
 
 
