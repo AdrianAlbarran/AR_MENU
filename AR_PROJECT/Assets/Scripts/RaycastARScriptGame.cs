@@ -17,14 +17,13 @@ public class RaycastARScriptGame : MonoBehaviour
     [SerializeField]
     public Camera arCamera;
 
-    private ARRaycastManager raycastManager;
+    public ARRaycastManager raycastManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private void Start()
     {
+
         _ObjectSpawned = false;
-        raycastManager = GetComponent<ARRaycastManager>();
-        planeManager = GetComponent<ARPlaneManager>();
     }
 
     public void addObject()
@@ -39,6 +38,7 @@ public class RaycastARScriptGame : MonoBehaviour
                 Vector3 newPos = new Vector3(hitPose.position.x, hitPose.position.y + 0.05f, hitPose.position.z);
                 _spawned_object = Instantiate(spawn_prefab, hitPose.position, hitPose.rotation);
                 _spawned_object.name = "Game";
+                _spawned_object.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
                 _ObjectSpawned = true;
                 canSpawn = false;
                 UIEnabler(true);
@@ -50,21 +50,6 @@ public class RaycastARScriptGame : MonoBehaviour
                     planeManager.enabled = false;
                 }
 
-                //else
-                //{
-                //    Ray ray = arCamera.ScreenPointToRay(touch.position);
-                //    RaycastHit hitObject;
-
-                //    bool test = Physics.Raycast(ray, out hitObject);
-                //    if (test)
-                //    {
-                //        Debug.Log("Colisiono con: " + hitObject.transform.name);
-                //    }
-                //    else
-                //    {
-                //        Debug.Log(test);
-                //    }
-                //}
             }
         }
     }
@@ -89,7 +74,16 @@ public class RaycastARScriptGame : MonoBehaviour
     {
         Delete();
         UIEnabler(false);
+
+        foreach (var plane in planeManager.trackables)
+        {
+            plane.gameObject.SetActive(true);
+
+            planeManager.enabled = true;
+        }
+
         canSpawn = true;
+
     }
 
     public void StartGame()

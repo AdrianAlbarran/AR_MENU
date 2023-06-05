@@ -1146,10 +1146,11 @@ MonoBehaviour:
   spawn_prefab: {fileID: 3742468087675217104, guid: cc378dd42a79d5849b2cfc125807683e,
     type: 3}
   planeManager: {fileID: 1512040746}
-  gameButton: {fileID: 0}
-  areaButton: {fileID: 0}
+  gameButton: {fileID: 1692612634}
+  areaButton: {fileID: 1811246933}
   canSpawn: 0
   arCamera: {fileID: 887737940}
+  raycastManager: {fileID: 1512040749}
 --- !u!114 &1494454367
 MonoBehaviour:
   m_ObjectHideFlags: 0
