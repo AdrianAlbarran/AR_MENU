@@ -21,10 +21,6 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
     [SerializeField]
     private GameObject[] arObjectsToPlace;
 
-    // Tamaño de objetos 
-    [SerializeField]
-    private Vector3 scaleFactor = new Vector3(0.1f, 0.1f, 0.1f);
-
     private ARTrackedImageManager m_TrackedImageManager;
 
     private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
@@ -107,16 +103,15 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
             GameObject goARObject = arObjects[name].GetComponent<RestuaranteManager>().CurrentModel();
             goARObject.SetActive(true);
             goARObject.transform.position = newPosition;
-            //goARObject.transform.localScale = scaleFactor;
 
-            foreach (GameObject go in arObjects.Values)
-            {
-                Debug.Log($"Go in arObjects.Values: {go.name}");
-                if (go.name != name)
-                {
-                    go.SetActive(false);
-                }
-            }
+            //foreach (GameObject go in arObjects.Values)
+            //{
+            //    Debug.Log($"Go in arObjects.Values: {go.name}");
+            //    if (go.name != name)
+            //    {
+            //        go.SetActive(false);
+            //    }
+            //}
         }
     }
 }

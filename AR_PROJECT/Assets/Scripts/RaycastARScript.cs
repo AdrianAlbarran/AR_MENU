@@ -49,12 +49,12 @@ public class RaycastARScript : MonoBehaviour
                         planeManager.enabled = false;
 
                     }
+                    
                 }
                 else
                 {
                     Ray ray = arCamera.ScreenPointToRay(touch.position);
                     RaycastHit hitObject;
-                    Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaa");
 
                     bool test = Physics.Raycast(ray, out hitObject);
                     if (test)
@@ -69,4 +69,6 @@ public class RaycastARScript : MonoBehaviour
             }
         }
     }
+
+
 }
