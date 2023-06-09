@@ -91,8 +91,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   array:
   - {fileID: 3742468087675217104, guid: cc378dd42a79d5849b2cfc125807683e, type: 3}
-  izq: {x: -0.5, y: 0, z: 0}
-  derecha: {x: 0.5, y: 0, z: 0}
+  izq: {x: -0.8, y: 0, z: 0}
+  derecha: {x: 0.8, y: 0, z: 0}
   offset: {x: 0, y: 1, z: 0}
   CD: 1
 --- !u!1 &5669289406641073115
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5669289407799971432}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92d3eb11da3902f4aae85c15cf017b63, type: 3}
   m_Name: 
@@ -456,7 +456,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 124
   m_CollisionDetection: 0
 --- !u!1 &5669289408158097961
 GameObject:

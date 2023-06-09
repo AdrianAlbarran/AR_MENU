@@ -31,10 +31,9 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         StartCoroutine(CDspawn());
-        //float pos = fatherPos.x + Random.Range(izq.x,derecha.x);
+        float xPos = fatherPos.x + UnityEngine.Random.Range(izq.x,derecha.x);
         int indice = UnityEngine.Random.Range(0, array.Length);
-        Debug.Log(fatherPos);
-        GameObject aux = Instantiate(array[indice], new Vector3(fatherPos.x, fatherPos.y + 1, fatherPos.z), Quaternion.identity);
+        GameObject aux = Instantiate(array[indice], new Vector3(xPos, fatherPos.y + 1, fatherPos.z), Quaternion.identity);
 
     }
     IEnumerator CDspawn()
