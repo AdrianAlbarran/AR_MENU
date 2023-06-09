@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class Spawner : MonoBehaviour
 
     public Vector3 izq;
     public Vector3 derecha;
-
+    private Vector3 fatherPos;
     public Vector3 offset;
 
     private bool onCD;
@@ -17,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     public void Start()
     {
-        
+        fatherPos = transform.parent.position;
     }
 
 
@@ -30,11 +31,12 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         StartCoroutine(CDspawn());
-        float pos = Random.Range(izq.x,derecha.x);
-        int indice = Random.Range(0, array.Length);
-        Instantiate(array[indice],new Vector3(pos,offset.y,offset.z), Quaternion.identity);
-    }
+        //float pos = fatherPos.x + Random.Range(izq.x,derecha.x);
+        int indice = UnityEngine.Random.Range(0, array.Length);
+        Debug.Log(fatherPos);
+        GameObject aux = Instantiate(array[indice], new Vector3(fatherPos.x, fatherPos.y + 1, fatherPos.z), Quaternion.identity);
 
+    }
     IEnumerator CDspawn()
     {
         onCD = true;

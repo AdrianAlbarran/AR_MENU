@@ -35,10 +35,9 @@ public class RaycastARScriptGame : MonoBehaviour
             {
                 var hitPose = hits[0].pose;
 
-                Vector3 newPos = new Vector3(hitPose.position.x, hitPose.position.y + 0.05f, hitPose.position.z);
+                Vector3 newPos = new Vector3(hitPose.position.x, hitPose.position.y, hitPose.position.z);
                 _spawned_object = Instantiate(spawn_prefab, hitPose.position, hitPose.rotation);
                 _spawned_object.name = "Game";
-                _spawned_object.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
                 _ObjectSpawned = true;
                 canSpawn = false;
                 UIEnabler(true);

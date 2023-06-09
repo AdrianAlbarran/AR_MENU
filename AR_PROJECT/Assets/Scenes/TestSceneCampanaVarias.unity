@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624f50cc56875e43beb4bd71cd6a20f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn_prefab: {fileID: 3742468087675217104, guid: cc378dd42a79d5849b2cfc125807683e,
+  spawn_prefab: {fileID: 5669289408226093060, guid: d5fdd984779637347b2f09c22143fcbf,
     type: 3}
   planeManager: {fileID: 1512040746}
   gameButton: {fileID: 1692612634}

@@ -6,13 +6,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour, ISubject<int>
 {
     private float horizontal;
-    private Rigidbody _rb;
-    public float speed;
+    private Vector3 pos;
+    public Camera cameraSceneAR;
 
     public int score;
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        cameraSceneAR = Camera.main;
+        pos = transform.position;
     }
 
     // Update is called once per frame
@@ -23,8 +24,7 @@ public class PlayerController : MonoBehaviour, ISubject<int>
 
     private void FixedUpdate()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        _rb.velocity = new Vector3(horizontal*speed, 0, 0);
+        //transform.position = new Vector3(camera.transform.position.x, transform.position.y, transform.position.z);
     }
 
     public void UpdateScore(int value)
