@@ -53,13 +53,10 @@ public class PlayerController : MonoBehaviour, ISubject<int>
         {
             _rb.AddForce(transform.right * dis, ForceMode.VelocityChange);
 
-            Debug.Log("angulo con signo: " + signed_angle);
-
             signed_angle = Mathf.Deg2Rad * signed_angle;
             dis = Mathf.Sin(signed_angle);
             dis = dis >= 0.35f ? dis * .2f : dis * .1f;
 
-            Debug.Log(transform.right);
         }
     }
 

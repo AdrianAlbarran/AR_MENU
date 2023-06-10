@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -31,10 +32,22 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         StartCoroutine(CDspawn());
-        float xPos = fatherPos.x + UnityEngine.Random.Range(izq.x,derecha.x);
+        float dispacementX = UnityEngine.Random.Range(izq.x, derecha.x);
+        float xPos = fatherPos.x + dispacementX;
         int indice = UnityEngine.Random.Range(0, array.Length);
-        GameObject aux = Instantiate(array[indice], new Vector3(xPos, fatherPos.y + 1, fatherPos.z), Quaternion.identity);
 
+        float offAngle = Vector3.Angle(this.transform.right, new Vector3(1, 0, 0));
+
+        UnityEngine.Debug.Log(offAngle);
+
+        float newX = Mathf.Cos(offAngle * Mathf.Deg2Rad) * xPos;
+        float newZ = Mathf.Sin(offAngle * Mathf.Deg2Rad) * dispacementX;
+
+        UnityEngine.Debug.Log("newz " + newZ);
+        UnityEngine.Debug.Log("fatherPosZ" + fatherPos.z);
+        GameObject aux = Instantiate(array[indice], new Vector3(newX, fatherPos.y + 1, newZ + fatherPos.z), Quaternion.identity);
+
+        UnityEngine.Debug.Log("aux.z" + aux.transform.position.z);
     }
     IEnumerator CDspawn()
     {

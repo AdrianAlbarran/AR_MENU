@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -81,8 +83,8 @@ public class RaycastARScriptGame : MonoBehaviour
             planeManager.enabled = true;
         }
 
-        canSpawn = true;
-
+        
+        StartCoroutine(PlaceGame());
     }
 
     public void StartGame()
@@ -102,5 +104,12 @@ public class RaycastARScriptGame : MonoBehaviour
             areaButton.SetActive(false);
             gameButton.SetActive(false);
         }
+    }
+
+    public IEnumerator PlaceGame()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canSpawn = true;
+
     }
 }
