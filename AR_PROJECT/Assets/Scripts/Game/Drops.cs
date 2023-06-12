@@ -37,6 +37,5 @@ public class Drops : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("Me muero");
     }
 }

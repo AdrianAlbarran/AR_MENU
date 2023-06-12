@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -22,10 +23,12 @@ public class RaycastARScriptGame : MonoBehaviour
     public ARRaycastManager raycastManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+    private bool foodActive;
     private void Start()
     {
 
         _ObjectSpawned = false;
+        foodActive = true;
     }
 
     public void addObject()
@@ -83,13 +86,22 @@ public class RaycastARScriptGame : MonoBehaviour
             planeManager.enabled = true;
         }
 
-        
+        if (foodActive)
+        {
+            GameObject foodPrefab = FindAnyObjectByType<RestuaranteManager>().gameObject;
+            foodPrefab.SetActive(false);
+            foodActive = false;
+        }
+
         StartCoroutine(PlaceGame());
     }
 
     public void StartGame()
     {
-        Debug.Log("Empezar io que se");
+
+        UIEnabler(false);
+        _spawned_object.GetComponent<GameManager>().StartGame();
+
     }
 
     public void UIEnabler(bool control)

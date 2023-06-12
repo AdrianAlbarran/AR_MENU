@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour, ISubject<int>
     private float horizontal;
     private Vector3 pos;
     public Camera cameraSceneAR;
-    private Vector3 initialPhonePosition;
-    private bool isMoving = false;
     private Vector3 vecToCamera;
     private Rigidbody _rb;
     private float dis;

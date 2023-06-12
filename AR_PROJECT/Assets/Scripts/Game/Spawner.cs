@@ -7,7 +7,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] array;
-
+    public GameObject[] spawnPointsArray;
     public Vector3 izq;
     public Vector3 derecha;
     private Vector3 fatherPos;
@@ -32,22 +32,21 @@ public class Spawner : MonoBehaviour
     public void Spawn()
     {
         StartCoroutine(CDspawn());
-        float dispacementX = UnityEngine.Random.Range(izq.x, derecha.x);
-        float xPos = fatherPos.x + dispacementX;
+        //float dispacementX = UnityEngine.Random.Range(izq.x, derecha.x);
+        //float xPos = fatherPos.x + dispacementX;
+
+
+        //float offAngle = Vector3.Angle(this.transform.right, new Vector3(1, 0, 0));
+
+        //float newX = Mathf.Cos(offAngle * Mathf.Deg2Rad) * xPos;
+        //float newZ = Mathf.Sin(offAngle * Mathf.Deg2Rad) * dispacementX;
+
         int indice = UnityEngine.Random.Range(0, array.Length);
+        int randomPos = UnityEngine.Random.Range(0, spawnPointsArray.Length);
+        Vector3 spawnPoint = new Vector3(spawnPointsArray[randomPos].transform.position.x, spawnPointsArray[randomPos].transform.position.y + offset.y, spawnPointsArray[randomPos].transform.position.z);
 
-        float offAngle = Vector3.Angle(this.transform.right, new Vector3(1, 0, 0));
+        GameObject aux = Instantiate(array[indice], spawnPoint, Quaternion.identity);
 
-        UnityEngine.Debug.Log(offAngle);
-
-        float newX = Mathf.Cos(offAngle * Mathf.Deg2Rad) * xPos;
-        float newZ = Mathf.Sin(offAngle * Mathf.Deg2Rad) * dispacementX;
-
-        UnityEngine.Debug.Log("newz " + newZ);
-        UnityEngine.Debug.Log("fatherPosZ" + fatherPos.z);
-        GameObject aux = Instantiate(array[indice], new Vector3(newX, fatherPos.y + 1, newZ + fatherPos.z), Quaternion.identity);
-
-        UnityEngine.Debug.Log("aux.z" + aux.transform.position.z);
     }
     IEnumerator CDspawn()
     {

@@ -20,6 +20,8 @@ public class RaycastARScript : MonoBehaviour
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     public GameObject gameCanvas;
+    public GameObject textCanvas;
+    
 
     private void Start()
     {
@@ -45,6 +47,11 @@ public class RaycastARScript : MonoBehaviour
                     _spawned_object.name = "campana";
                     _ObjectSpawned = true;
 
+                    // activamos el analisis de la imagen
+                    GetComponent<ARTrackedImageManager>().enabled = true;
+                    GetComponent<TrackedImageInfoMultipleManager>().enabled = true;
+                    textCanvas.SetActive(false);
+
                     foreach (var plane in planeManager.trackables)
                     {
                         plane.gameObject.SetActive(false);
@@ -59,18 +66,13 @@ public class RaycastARScript : MonoBehaviour
                     Ray ray = arCamera.ScreenPointToRay(touch.position);
                     RaycastHit hitObject;
 
-                    bool test = Physics.Raycast(ray, out hitObject);
-                    if (test)
+                    bool rayCollided = Physics.Raycast(ray, out hitObject);
+                    if (rayCollided)
                     {
-                        Debug.Log("Colisiono con: " + hitObject.transform.name);
-                        if(hitObject.transform.name== "campana")
+                        if(hitObject.transform.name== "campana" && TrackedImageInfoMultipleManager.imageDetected == true)
                         {
                             gameCanvas.SetActive(true);
                         }
-                    }
-                    else
-                    {
-                        Debug.Log(test);
                     }
                 }
             }

@@ -31,13 +31,11 @@ public class RestuaranteManager : MonoBehaviour
             --indexActivo;
             indexActivo = indexActivo < 0 ? modelsArray.Count - 1 : indexActivo;
             modelsArray[indexActivo].gameObject.SetActive(true);
-            Debug.LogWarning("Swipe hacia la izquierda, para cambiar objeto");
         }
         else
         {
             modelsArray[indexActivo].gameObject.SetActive(false);
             indexActivo = (indexActivo + 1) % modelsArray.Count;
-            Debug.LogWarning("Swipe hacia la derecha, para cambiar objeto");
             modelsArray[indexActivo].gameObject.SetActive(true);
         }
     }
