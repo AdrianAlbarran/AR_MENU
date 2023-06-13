@@ -24,6 +24,9 @@ public class RaycastARScriptGame : MonoBehaviour
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private bool foodActive;
+
+    [HideInInspector] public GameObject[] ingredientsArray;
+
     private void Start()
     {
 
@@ -89,6 +92,8 @@ public class RaycastARScriptGame : MonoBehaviour
         if (foodActive)
         {
             GameObject foodPrefab = FindAnyObjectByType<RestuaranteManager>().gameObject;
+            ingredientsArray = foodPrefab.GetComponent<RestuaranteManager>().CurrentModel().GetComponent<IngredientsDB>().ingredients;
+            Debug.LogWarning(ingredientsArray.ToString());
             foodPrefab.SetActive(false);
             foodActive = false;
         }

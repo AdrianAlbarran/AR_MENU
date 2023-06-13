@@ -10,6 +10,7 @@ public class Drops : MonoBehaviour
 
     private void Start()
     {
+
         _rb = GetComponent<Rigidbody>();
 
         _rb.useGravity = false;

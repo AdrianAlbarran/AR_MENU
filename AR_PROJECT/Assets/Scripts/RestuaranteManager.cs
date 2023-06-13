@@ -45,5 +45,4 @@ public class RestuaranteManager : MonoBehaviour
         return modelsArray[indexActivo];
     }
 
-
 }
