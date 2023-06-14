@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
@@ -14,6 +15,7 @@ public class RaycastARScriptGame : MonoBehaviour
     public ARPlaneManager planeManager;
     public GameObject gameButton;
     public GameObject areaButton;
+    public TextMeshProUGUI text;
 
     public bool canSpawn;
 
@@ -24,6 +26,8 @@ public class RaycastARScriptGame : MonoBehaviour
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private bool foodActive;
+    [SerializeField]
+    private float textTime;
 
     [HideInInspector] public GameObject[] ingredientsArray;
 
@@ -32,6 +36,12 @@ public class RaycastARScriptGame : MonoBehaviour
 
         _ObjectSpawned = false;
         foodActive = true;
+       
+
+    }
+    private void OnEnable()
+    {
+        text.gameObject.SetActive(true); 
     }
 
     public void addObject()
@@ -49,6 +59,7 @@ public class RaycastARScriptGame : MonoBehaviour
                 _ObjectSpawned = true;
                 canSpawn = false;
                 UIEnabler(true);
+                
 
                 foreach (var plane in planeManager.trackables)
                 {
@@ -65,6 +76,7 @@ public class RaycastARScriptGame : MonoBehaviour
     {
         if (canSpawn)
         {
+            SetText(1);
             addObject();
         }
     }
@@ -103,7 +115,8 @@ public class RaycastARScriptGame : MonoBehaviour
 
     public void StartGame()
     {
-
+        SetText(2);
+        StartCoroutine(TextOnScreen());
         UIEnabler(false);
         _spawned_object.GetComponent<GameManager>().StartGame();
 
@@ -128,5 +141,22 @@ public class RaycastARScriptGame : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         canSpawn = true;
 
+    }
+
+    public void SetText(int idx)
+    {
+        switch (idx)
+        {
+            case 0: text.text = "Prepárate para jugar";break;
+            case 1: text.text = "Selecciona donde quieres jugar";break;
+            case 2: text.text = "Recoge todos los alimentos";break;
+        }
+    }
+
+
+   public IEnumerator TextOnScreen()
+    {
+        yield return new WaitForSeconds(textTime);
+        text.gameObject.SetActive(false );
     }
 }
