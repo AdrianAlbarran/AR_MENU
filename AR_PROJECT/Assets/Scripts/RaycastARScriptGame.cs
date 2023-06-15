@@ -15,6 +15,8 @@ public class RaycastARScriptGame : MonoBehaviour
     public GameObject areaButton;
     public TextMeshProUGUI text;
 
+    public WinnerPanel winnerPanel;
+
     public bool canSpawn;
 
     [SerializeField]
@@ -31,6 +33,8 @@ public class RaycastARScriptGame : MonoBehaviour
     [HideInInspector] public GameObject[] ingredientsArray;
 
     [SerializeField] private Timer timer;
+
+    private GameManager gameManager;
 
     private void Start()
     {
@@ -115,7 +119,8 @@ public class RaycastARScriptGame : MonoBehaviour
         SetText(2);
         StartCoroutine(TextOnScreen());
         UIEnabler(false);
-        _spawned_object.GetComponent<GameManager>().StartGame();
+        gameManager = _spawned_object.GetComponent<GameManager>();
+        gameManager.StartGame();
         timer.enabled = true;
         StartCoroutine(GameDuration(timer.starTime));
     }
@@ -160,6 +165,10 @@ public class RaycastARScriptGame : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         timer.enabled = false;
+        winnerPanel.SetTextDescuento(gameManager.GetPoints().ToString()) ;
+        winnerPanel.SetTextPuntos(gameManager.GetPoints().ToString());
+        winnerPanel.ActivePanel();
+
         _spawned_object.GetComponent<GameManager>().EndGame();
     }
 }

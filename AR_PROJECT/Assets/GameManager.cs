@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    Spawner spawner;
+    [SerializeField] private Spawner spawner;
+
+    [SerializeField] private PlayerController pc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,9 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         spawner.enabled = false;
+    }
+    public int GetPoints()
+    {
+        return pc.score;
     }
 }
