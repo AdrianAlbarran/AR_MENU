@@ -22,4 +22,9 @@ public class GameManager : MonoBehaviour
     {
         spawner.enabled = true;
     }
+
+    public void EndGame()
+    {
+        spawner.enabled = false;
+    }
 }

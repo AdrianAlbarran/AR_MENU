@@ -5,16 +5,12 @@ public class ModelController : MonoBehaviour
     private float initialDistance;
     private Vector3 initialScale;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
     // Update is called once per frame
     private void Update()
     {
         if (Input.touchCount == 2)
         {
+            Debug.LogWarning("entrooooooo");
             var touchZero = Input.GetTouch(0);
             var touchOne = Input.GetTouch(1);
 
