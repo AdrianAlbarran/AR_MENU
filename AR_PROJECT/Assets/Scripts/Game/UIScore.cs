@@ -7,13 +7,13 @@ using UnityEngine;
 
 public class UIScore :MonoBehaviour, IObserver<int>
 {
-
+    [SerializeField]
     private PlayerController player;
     public TextMeshProUGUI scoreText;
 
     public void Awake()
     {
-        player = FindAnyObjectByType<PlayerController>();
+        //player = FindAnyObjectByType<PlayerController>();
         player.AddObserver(this);
     }
     public void UpdateObserver(int data)

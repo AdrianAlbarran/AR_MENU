@@ -35,6 +35,7 @@ public class RaycastARScriptGame : MonoBehaviour
     [SerializeField] private Timer timer;
 
     private GameManager gameManager;
+    private float _foodPrice;
 
     private void Start()
     {
@@ -106,6 +107,7 @@ public class RaycastARScriptGame : MonoBehaviour
         {
             GameObject foodPrefab = FindAnyObjectByType<RestuaranteManager>().gameObject;
             ingredientsArray = foodPrefab.GetComponent<RestuaranteManager>().CurrentModel().GetComponent<IngredientsDB>().ingredients;
+            _foodPrice = foodPrefab.GetComponent<RestuaranteManager>().CurrentModel().GetComponent<IngredientsDB>().price;
             Debug.LogWarning(ingredientsArray.ToString());
             foodPrefab.SetActive(false);
             foodActive = false;
@@ -165,7 +167,9 @@ public class RaycastARScriptGame : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         timer.enabled = false;
-        winnerPanel.SetTextDescuento(gameManager.GetPoints().ToString()) ;
+        string descuento = $"Descuento: {_foodPrice * (1 - (gameManager.GetPoints() * 0.05f * 0.01))}$";
+        winnerPanel.SetTextDescuento(descuento);
+
         winnerPanel.SetTextPuntos(gameManager.GetPoints().ToString());
         winnerPanel.ActivePanel();
 

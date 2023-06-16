@@ -49,13 +49,10 @@ public class Spawner : MonoBehaviour
         //float newZ = Mathf.Sin(offAngle * Mathf.Deg2Rad) * dispacementX;
 
         int indice = UnityEngine.Random.Range(0, array.Length);
-        Debug.Log(spawnPointsArray.Length);
-        Debug.Log("aaaaaaaaaaaaaaaaa"+array.Length);
 
         int randomPos = UnityEngine.Random.Range(0, spawnPointsArray.Length);
    
         Vector3 spawnPoint = new Vector3(spawnPointsArray[randomPos].transform.position.x, spawnPointsArray[randomPos].transform.position.y + offset.y, spawnPointsArray[randomPos].transform.position.z);
-        Debug.Log("cae: " + array[indice].name);
         GameObject aux = Instantiate(array[indice], spawnPoint, Quaternion.identity);
 
     }

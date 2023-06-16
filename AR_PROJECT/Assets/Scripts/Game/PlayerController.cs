@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour, ISubject<int>
         float signed_angle = angle * sign;
 
 
-        if (signed_angle > -5 && signed_angle < 5)
+        if (signed_angle > -3 && signed_angle < 3)
         {
             _rb.velocity = Vector3.zero;
         }
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour, ISubject<int>
 
             signed_angle = Mathf.Deg2Rad * signed_angle;
             dis = Mathf.Sin(signed_angle);
-            dis = dis >= 0.35f ? dis * .2f : dis * .1f;
+            dis = dis >= 0.20f ? dis * .3f : dis * .2f;
 
         }
     }

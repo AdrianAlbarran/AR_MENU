@@ -10,7 +10,6 @@ public class ModelController : MonoBehaviour
     {
         if (Input.touchCount == 2)
         {
-            Debug.LogWarning("entrooooooo");
             var touchZero = Input.GetTouch(0);
             var touchOne = Input.GetTouch(1);
 
