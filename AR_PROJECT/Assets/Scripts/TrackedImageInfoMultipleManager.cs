@@ -8,15 +8,6 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class TrackedImageInfoMultipleManager : MonoBehaviour
 {
-    //[SerializeField]
-    //private GameObject welcomePanel;
-
-    //[SerializeField]
-    //private Button dismissButton;
-
-    //[SerializeField]
-    //private Text imageTrackedText;
-
     // Modelos a imprimir
     [SerializeField]
     private GameObject[] arObjectsToPlace;
@@ -29,6 +20,8 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
     public static Action onDetection;
 
     public static bool imageDetected = false;
+
+    [SerializeField] GameObject textCanvasUI;
     void Awake()
     {
         //dismissButton.onClick.AddListener(Dismiss);
@@ -98,6 +91,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
     {
         if (arObjectsToPlace != null)
         {
+            textCanvasUI.SetActive(false);
             GameObject goARObject = arObjects[name].GetComponent<RestuaranteManager>().CurrentModel();
             goARObject.SetActive(true);
             goARObject.transform.position = newPosition;

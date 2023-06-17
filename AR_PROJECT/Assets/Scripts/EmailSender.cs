@@ -5,9 +5,13 @@ using System.Net.Security;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using TMPro;
 
 public class EmailSender : MonoBehaviour
 {
+    string eMailDirTo;
+
+    [SerializeField] TMP_InputField eMailTextBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +34,7 @@ public class EmailSender : MonoBehaviour
         SmtpServer.Port = 587;
 
         mail.From = new MailAddress("uni67620@gmail.com");
-        mail.To.Add(new MailAddress("lmoralvxd@gmail.com"));
+        mail.To.Add(new MailAddress(eMailDirTo));
 
         mail.Subject = "Test Email through C Sharp App";
         mail.Body = "capoeria";
@@ -44,5 +48,10 @@ public class EmailSender : MonoBehaviour
 
         mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
         SmtpServer.Send(mail);
+    }
+
+    public void SetEmail()
+    {
+         eMailDirTo= eMailTextBox.text;
     }
 }

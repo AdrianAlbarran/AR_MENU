@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 15
-  speed: 20
+  speed: 14
 --- !u!64 &2473715282005672624
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -50,16 +51,16 @@ public class RaycastARScript : MonoBehaviour
                     // activamos el analisis de la imagen
                     GetComponent<ARTrackedImageManager>().enabled = true;
                     GetComponent<TrackedImageInfoMultipleManager>().enabled = true;
-                    textCanvas.SetActive(false);
+                    textCanvas.GetComponent<TextMeshProUGUI>().text = "Escanea el qr";
 
+
+                  
                     foreach (var plane in planeManager.trackables)
                     {
                         plane.gameObject.SetActive(false);
 
                         planeManager.enabled = false;
-
                     }
-
                 }
                 else
                 {
@@ -71,6 +72,8 @@ public class RaycastARScript : MonoBehaviour
                     {
                         if(hitObject.transform.name== "campana" && TrackedImageInfoMultipleManager.imageDetected == true)
                         {
+                            // Quitamos la capacidad de hacer swipe
+                            try { GameObject.FindObjectOfType<SwipeDetector>().enabled = false; } catch { Debug.LogWarning("No se ha encontrado el swipe Detector"); }
                             gameCanvas.SetActive(true);
                         }
                     }
