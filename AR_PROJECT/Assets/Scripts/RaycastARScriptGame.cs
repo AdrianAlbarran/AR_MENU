@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -166,7 +167,13 @@ public class RaycastARScriptGame : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         timer.enabled = false;
-        string descuento = $"Descuento: {_foodPrice * (1 - (gameManager.GetPoints() * 0.05f * 0.01))}$";
+
+        double descuentoValor = _foodPrice * (1 - (gameManager.GetPoints() * 0.05f * 0.01f));
+        descuentoValor = Math.Floor(descuentoValor * 100) / 100;
+
+
+        string descuento = $"Descuento: {descuentoValor}$";
+
         winnerPanel.SetTextDescuento(descuento);
 
         winnerPanel.SetTextPuntos(gameManager.GetPoints().ToString());
