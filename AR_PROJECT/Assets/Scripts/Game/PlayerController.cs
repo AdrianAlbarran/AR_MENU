@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour, ISubject<int>
     private float dis;
     private float prevCameraZ;
     private float actualCameraZ;
-    private float basePotZ;
-
+    [SerializeField] private Transform colliderZP;
+    [SerializeField] private Transform colliderZN;
     public int score;
     void Start()
     {
@@ -50,24 +50,13 @@ public class PlayerController : MonoBehaviour, ISubject<int>
 
         // Z movement
         actualCameraZ = cameraSceneAR.transform.position.z;
-        float deltaZ = (actualCameraZ - prevCameraZ);
-        deltaZ = deltaZ >= 0.20f ? deltaZ * 10f : deltaZ * 18f;
-        prevCameraZ = cameraSceneAR.transform.position.z;
+        float deltaZ = (actualCameraZ - prevCameraZ) * 2;
 
+        //mov eje z
+        this.transform.position = new Vector3(transform.position.x, transform.position.y, CheckOutOfBounds(transform.position.z + deltaZ));
         if (signed_angle > -3 && signed_angle < 3)
         {
             _rb.velocity = Vector3.zero;
-
-            // woops!
-            if(deltaZ > -0.005 && deltaZ < 0.005)
-            {
-                _rb.velocity = Vector3.zero;
-            }
-            else
-            {
-                _rb.AddForce(transform.forward * deltaZ, ForceMode.VelocityChange);
-            }
-            
 
         }
         else
@@ -78,10 +67,14 @@ public class PlayerController : MonoBehaviour, ISubject<int>
             dis = dis >= 0.20f ? dis * .3f : dis * .2f;
             _rb.AddForce(transform.right * dis, ForceMode.VelocityChange);
 
-            // fuerza para solo el eje z
-            _rb.AddForce(transform.forward * deltaZ, ForceMode.VelocityChange);
-
         }
+        prevCameraZ = cameraSceneAR.transform.position.z;
+
+    }
+
+    private float CheckOutOfBounds(float zPos)
+    {
+        return Mathf.Clamp(zPos, colliderZN.position.z, colliderZP.position.z);
     }
 
     public void UpdateScore(int value)

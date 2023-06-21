@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -22,14 +23,17 @@ public class RaycastARScript : MonoBehaviour
 
     public GameObject gameCanvas;
     public GameObject textCanvas;
-    
+
+    private bool foodSelected;
+    [SerializeField] private RaycastARScriptDrinks drinksRaycastManager;
 
     private void Start()
     {
+        foodSelected = false;
         _ObjectSpawned = false;
         raycastManager = GetComponent<ARRaycastManager>();
         planeManager = GetComponent<ARPlaneManager>();
-
+        arCamera = Camera.main;
 
     }
 
@@ -72,18 +76,32 @@ public class RaycastARScript : MonoBehaviour
                     {
                         if(hitObject.transform.name== "campana" && TrackedImageInfoMultipleManager.imageDetected == true)
                         {
-                            // Quitamos la capacidad de hacer swipe
-                            try { GameObject.FindObjectOfType<SwipeDetector>().enabled = false; } catch { Debug.LogWarning("No se ha encontrado el swipe Detector"); }
-                            gameCanvas.SetActive(true);
+                            if(!foodSelected)
+                            {
+                                foodSelected = true;
+                                // Quitamos la capacidad de hacer swipe
+                                GameObject.FindObjectOfType<RestuaranteManager>().OnBellTouch();
+                                drinksRaycastManager.enabled = true;
+                                
+                            }
+                            else
+                            {
+                                try { GameObject.FindObjectOfType<SwipeDetector>().enabled = false; } catch { Debug.LogWarning("No se ha encontrado el swipe Detector"); }
+                                gameCanvas.SetActive(true);
+                            }
+
                         }
                     }
                 }
             }
         }
     }
+
     private void Update()
     {
-        addObject(); 
+        if(!drinksRaycastManager.enabled)
+            addObject();
+
     }
 
 

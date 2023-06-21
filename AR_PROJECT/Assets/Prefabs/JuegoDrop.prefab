@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2450117721870452165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0.93, z: -4.95}
+  m_LocalPosition: {x: 0.06, y: 0.93, z: -4.34}
   m_LocalScale: {x: 1.1256, y: 1, z: 1.4747025}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,7 +226,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -10.86, y: 0.84, z: 0.87}
+  m_Size: {x: -10.95, y: 0.84, z: 0.34}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2471342037377130381
 GameObject:
@@ -408,7 +408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5301895348592657917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 1.02, z: 5.08}
+  m_LocalPosition: {x: 0.06, y: 1.02, z: 4.3}
   m_LocalScale: {x: 1.1, y: 1, z: 1.5787734}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -426,7 +426,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -10.86, y: 1.18, z: 0.87}
+  m_Size: {x: -10.86, y: 1.18, z: 0.27}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5669289406220779205
 GameObject:
@@ -1511,48 +1511,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSceneAR: {fileID: 0}
-  animCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.5407115
-      outSlope: 0.5407115
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.067719504
-      value: 0.036616717
-      inSlope: 0.2413249
-      outSlope: 0.2413249
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.26366028
-    - serializedVersion: 3
-      time: 0.72044396
-      value: 0.07229161
-      inSlope: 0.13095073
-      outSlope: 0.13095073
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9967041
-      value: 0.12954545
-      inSlope: 0.042758252
-      outSlope: 0.042758252
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.9994895
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  colliderZP: {fileID: 8699051622629421242}
+  colliderZN: {fileID: 1094189057875675784}
   score: 0
 --- !u!54 &3133611076864627000
 Rigidbody:

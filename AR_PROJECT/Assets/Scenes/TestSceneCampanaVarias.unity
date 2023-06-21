@@ -2704,6 +2704,7 @@ GameObject:
   - component: {fileID: 1512040749}
   - component: {fileID: 1512040748}
   - component: {fileID: 1512040750}
+  - component: {fileID: 1512040751}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -2804,6 +2805,7 @@ MonoBehaviour:
   arCamera: {fileID: 887737940}
   gameCanvas: {fileID: 1494454364}
   textCanvas: {fileID: 1976638170}
+  drinksRaycastManager: {fileID: 1512040751}
 --- !u!114 &1512040749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2833,6 +2835,23 @@ MonoBehaviour:
   m_EnvironmentTextureFilterMode: 2
   m_EnvironmentTextureHDR: 1
   m_DebugPrefab: {fileID: 0}
+--- !u!114 &1512040751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512040741}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e11019387d3e04d989725cc1cf54e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn_prefab: {fileID: 2079881761896612826, guid: 2e54856df9d64904c93015a45f12847e,
+    type: 3}
+  planeManager: {fileID: 1512040746}
+  arCamera: {fileID: 887737940}
+  textCanvas: {fileID: 1976638170}
 --- !u!1 &1564021729
 GameObject:
   m_ObjectHideFlags: 0

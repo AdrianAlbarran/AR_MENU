@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class RestuaranteManager : MonoBehaviour
+public class DrinksManager : MonoBehaviour
 {
 
     [SerializeField]
@@ -12,7 +10,7 @@ public class RestuaranteManager : MonoBehaviour
 
     int indexActivo;
 
-    public void Awake()
+    public void Start()
     {
         indexActivo = 0;
         SwipeDetector.OnSwipe += changeModelOnSwipe;
@@ -20,12 +18,13 @@ public class RestuaranteManager : MonoBehaviour
         {
             model.SetActive(false);
         }
+        modelsArray[indexActivo].SetActive(true);
     }
 
     private void changeModelOnSwipe(SwipeData swipeData)
     {
-        if(!TrackedImageInfoMultipleManager.imageDetected) { return; }
-        if(swipeData.Direction == SwipeDirection.Left)
+        if (!TrackedImageInfoMultipleManager.imageDetected) { return; }
+        if (swipeData.Direction == SwipeDirection.Left)
         {
             modelsArray[indexActivo].gameObject.SetActive(false);
             --indexActivo;
@@ -43,10 +42,5 @@ public class RestuaranteManager : MonoBehaviour
     public GameObject CurrentModel()
     {
         return modelsArray[indexActivo];
-    }
-
-    public void OnBellTouch()
-    {
-        SwipeDetector.OnSwipe -= changeModelOnSwipe;
     }
 }
