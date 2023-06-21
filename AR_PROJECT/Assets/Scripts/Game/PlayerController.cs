@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, ISubject<int>
@@ -12,13 +13,18 @@ public class PlayerController : MonoBehaviour, ISubject<int>
     private Vector3 vecToCamera;
     private Rigidbody _rb;
     private float dis;
+    private float prevCameraZ;
+    private float actualCameraZ;
+    private float basePotZ;
 
     public int score;
     void Start()
     {
+        dis = 0;
         cameraSceneAR = Camera.main;
         pos = transform.position;
         _rb = this.GetComponent<Rigidbody>();
+        prevCameraZ = cameraSceneAR.transform.position.z;
     }
 
     // Update is called once per frame
@@ -42,18 +48,38 @@ public class PlayerController : MonoBehaviour, ISubject<int>
         // angle in [-179,180]
         float signed_angle = angle * sign;
 
+        // Z movement
+        actualCameraZ = cameraSceneAR.transform.position.z;
+        float deltaZ = (actualCameraZ - prevCameraZ);
+        deltaZ = deltaZ >= 0.20f ? deltaZ * 10f : deltaZ * 18f;
+        prevCameraZ = cameraSceneAR.transform.position.z;
 
         if (signed_angle > -3 && signed_angle < 3)
         {
             _rb.velocity = Vector3.zero;
+
+            // woops!
+            if(deltaZ > -0.005 && deltaZ < 0.005)
+            {
+                _rb.velocity = Vector3.zero;
+            }
+            else
+            {
+                _rb.AddForce(transform.forward * deltaZ, ForceMode.VelocityChange);
+            }
+            
+
         }
         else
         {
-            _rb.AddForce(transform.right * dis, ForceMode.VelocityChange);
-
+            // fuerza para el eje xz
             signed_angle = Mathf.Deg2Rad * signed_angle;
             dis = Mathf.Sin(signed_angle);
             dis = dis >= 0.20f ? dis * .3f : dis * .2f;
+            _rb.AddForce(transform.right * dis, ForceMode.VelocityChange);
+
+            // fuerza para solo el eje z
+            _rb.AddForce(transform.forward * deltaZ, ForceMode.VelocityChange);
 
         }
     }
