@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Drop
   - Floor
+  - Edible
   layers:
   - Default
   - TransparentFX

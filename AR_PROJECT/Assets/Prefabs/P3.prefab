@@ -766,6 +766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pizza Margarita cut
       objectReference: {fileID: 0}
+    - target: {fileID: 4850541254266803216, guid: 1d08eb9304ef2d247b4c953f91c9ca75,
+        type: 3}
+      propertyPath: m_TagString
+      value: Edible
+      objectReference: {fileID: 0}
     - target: {fileID: 5195822731287006890, guid: 1d08eb9304ef2d247b4c953f91c9ca75,
         type: 3}
       propertyPath: m_RootOrder

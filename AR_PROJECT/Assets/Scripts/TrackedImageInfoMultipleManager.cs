@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
@@ -91,7 +93,7 @@ public class TrackedImageInfoMultipleManager : MonoBehaviour
     {
         if (arObjectsToPlace != null)
         {
-            textCanvasUI.SetActive(false);
+            textCanvasUI.GetComponent<TextMeshProUGUI>().text = "";
             GameObject goARObject = arObjects[name].GetComponent<RestuaranteManager>().CurrentModel();
             goARObject.SetActive(true);
             goARObject.transform.position = newPosition;

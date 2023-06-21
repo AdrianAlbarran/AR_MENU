@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 7807213090260601499}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Edible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20$
+  m_text: 5$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -728,6 +728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2811806312798703793}
+  - component: {fileID: 3491326090869821721}
   m_Layer: 0
   m_Name: B3
   m_TagString: Untagged
@@ -752,6 +753,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3491326090869821721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942845678380375958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e54f3cb22fca54baab38646b3f8097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredients: []
+  price: 5
+  strPrice: {fileID: 8252556729510806303}
 --- !u!1 &6307869279046758621
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coffee Cup C
       objectReference: {fileID: 0}
+    - target: {fileID: 1598737658758947845, guid: 9618ee5198d5bc14690b61b995f89590,
+        type: 3}
+      propertyPath: m_TagString
+      value: Edible
+      objectReference: {fileID: 0}
     - target: {fileID: 2117830654869487295, guid: 9618ee5198d5bc14690b61b995f89590,
         type: 3}
       propertyPath: m_RootOrder
@@ -999,3 +1020,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5504094311151275746}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6507037301451156199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1598737658758947845, guid: 9618ee5198d5bc14690b61b995f89590,
+    type: 3}
+  m_PrefabInstance: {fileID: 5504094311151275746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3222574395886698479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507037301451156199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96c9c80692c7647a4e1cbcc5281fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

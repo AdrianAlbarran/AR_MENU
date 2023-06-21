@@ -11,6 +11,7 @@ public class RaycastARScriptDrinks : MonoBehaviour
     private GameObject _spawned_object;
     private bool _ObjectSpawned;
     public ARPlaneManager planeManager;
+    private bool readyToSpawn;
 
     [SerializeField]
     public Camera arCamera;
@@ -20,8 +21,10 @@ public class RaycastARScriptDrinks : MonoBehaviour
 
     public GameObject textCanvas;
 
+
     private void OnEnable()
     {
+        readyToSpawn = false;
         _ObjectSpawned = false;
         raycastManager = GetComponent<ARRaycastManager>();
         planeManager = GetComponent<ARPlaneManager>();
@@ -34,10 +37,17 @@ public class RaycastARScriptDrinks : MonoBehaviour
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
+            // rayo para comprobar colisiones con colliders
+            RaycastHit hitObject;
+            Ray ray = arCamera.ScreenPointToRay(touch.position);
+            
+            bool rayCollided = Physics.Raycast(ray, out hitObject);
+            Debug.Log(hitObject.transform.tag);
             if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
             {
                 var hitPose = hits[0].pose;
-                if (!_ObjectSpawned)
+                    
+                if (!_ObjectSpawned && hitObject.transform.tag != "Edible")
                 {
                     Vector3 newPos = new Vector3(hitPose.position.x, hitPose.position.y, hitPose.position.z);
                     _spawned_object = Instantiate(spawn_prefab, hitPose.position, hitPose.rotation);
@@ -51,6 +61,7 @@ public class RaycastARScriptDrinks : MonoBehaviour
                     }
 
                     GetComponent<RaycastARScriptDrinks>().enabled = false;
+                    GetComponent<RaycastARScript>().placingDrinks = false;
                 }
             }
         }
@@ -58,12 +69,21 @@ public class RaycastARScriptDrinks : MonoBehaviour
 
     private void Update()
     {
-        addObject();
+        if(readyToSpawn)
+        {
+            addObject();
+        }
+        
     }
 
     IEnumerator EnablePlanes()
     {
-        yield return new WaitForSeconds(0.3f);
+        while (Input.touchCount != 0)
+        {
+            Debug.Log(Input.touchCount);
+            yield return new WaitForSeconds(0.3f);
+        }
+        
         
         foreach (var plane in planeManager.trackables)
         {
@@ -71,6 +91,7 @@ public class RaycastARScriptDrinks : MonoBehaviour
 
             planeManager.enabled = true;
         }
+        readyToSpawn = true;
     }
 
 }

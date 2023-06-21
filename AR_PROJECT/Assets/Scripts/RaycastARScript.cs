@@ -27,13 +27,17 @@ public class RaycastARScript : MonoBehaviour
     private bool foodSelected;
     [SerializeField] private RaycastARScriptDrinks drinksRaycastManager;
 
+    public bool placingDrinks;
+
     private void Start()
     {
         foodSelected = false;
         _ObjectSpawned = false;
+        placingDrinks = false;
         raycastManager = GetComponent<ARRaycastManager>();
         planeManager = GetComponent<ARPlaneManager>();
         arCamera = Camera.main;
+        
 
     }
 
@@ -81,12 +85,17 @@ public class RaycastARScript : MonoBehaviour
                                 foodSelected = true;
                                 // Quitamos la capacidad de hacer swipe
                                 GameObject.FindObjectOfType<RestuaranteManager>().OnBellTouch();
+
                                 drinksRaycastManager.enabled = true;
-                                
+                                placingDrinks = true;
+                                textCanvas.GetComponent<TextMeshProUGUI>().text = "Pon la bebida donde quieras";
+
                             }
                             else
                             {
                                 try { GameObject.FindObjectOfType<SwipeDetector>().enabled = false; } catch { Debug.LogWarning("No se ha encontrado el swipe Detector"); }
+
+                                textCanvas.SetActive(false);
                                 gameCanvas.SetActive(true);
                             }
 
@@ -99,7 +108,7 @@ public class RaycastARScript : MonoBehaviour
 
     private void Update()
     {
-        if(!drinksRaycastManager.enabled)
+        if(!placingDrinks)
             addObject();
 
     }

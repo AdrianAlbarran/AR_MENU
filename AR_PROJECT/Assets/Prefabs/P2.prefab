@@ -1040,6 +1040,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Udon
       objectReference: {fileID: 0}
+    - target: {fileID: 8575389795609162483, guid: 72f7713924360c14295e85883d1da829,
+        type: 3}
+      propertyPath: m_TagString
+      value: Edible
+      objectReference: {fileID: 0}
     - target: {fileID: 8956031527661824073, guid: 72f7713924360c14295e85883d1da829,
         type: 3}
       propertyPath: m_RootOrder

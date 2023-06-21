@@ -109,8 +109,18 @@ public class RaycastARScriptGame : MonoBehaviour
             GameObject foodPrefab = FindAnyObjectByType<RestuaranteManager>().gameObject;
             ingredientsArray = foodPrefab.GetComponent<RestuaranteManager>().CurrentModel().GetComponent<IngredientsDB>().ingredients;
             _foodPrice = foodPrefab.GetComponent<RestuaranteManager>().CurrentModel().GetComponent<IngredientsDB>().price;
+           
             foodPrefab.SetActive(false);
+
+            // desactivar bebida
+            GameObject drinkPrefab = FindAnyObjectByType<DrinksManager>().CurrentModel();
+            // poner precio bebidas
+            _foodPrice += drinkPrefab.GetComponent<IngredientsDB>().price;
+            drinkPrefab.SetActive(false);
+
+
             foodActive = false;
+
         }
 
         StartCoroutine(PlaceGame());

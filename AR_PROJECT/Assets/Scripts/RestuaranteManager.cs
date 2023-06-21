@@ -48,5 +48,6 @@ public class RestuaranteManager : MonoBehaviour
     public void OnBellTouch()
     {
         SwipeDetector.OnSwipe -= changeModelOnSwipe;
+        CurrentModel().GetComponentInChildren<ModelController>().enabled = false;
     }
 }

@@ -264,6 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5252877524347809304}
+  - component: {fileID: 1084751580402850937}
   m_Layer: 0
   m_Name: B2
   m_TagString: Untagged
@@ -288,6 +289,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1084751580402850937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4438658204827705663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e54f3cb22fca54baab38646b3f8097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredients: []
+  price: 10
+  strPrice: {fileID: 2118532586571791798}
 --- !u!1 &4675270986213170432
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20$
+  m_text: 10$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -991,6 +1007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frappe B
       objectReference: {fileID: 0}
+    - target: {fileID: 3385439625878996250, guid: 80568ac56eee4324c9e6b89e04fdcb80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Edible
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80568ac56eee4324c9e6b89e04fdcb80, type: 3}
 --- !u!4 &2555699087257323009 stripped
@@ -999,3 +1020,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 488364637037762977}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2899326863899040955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3385439625878996250, guid: 80568ac56eee4324c9e6b89e04fdcb80,
+    type: 3}
+  m_PrefabInstance: {fileID: 488364637037762977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3248488093493812497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899326863899040955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a96c9c80692c7647a4e1cbcc5281fa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
