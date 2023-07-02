@@ -36,6 +36,7 @@ public class RaycastARScriptGame : MonoBehaviour
     [SerializeField] private Timer timer;
 
     private GameManager gameManager;
+    private Coroutine timerCoroutine;
     private float _foodPrice;
 
     private void Start()
@@ -134,7 +135,7 @@ public class RaycastARScriptGame : MonoBehaviour
         gameManager = _spawned_object.GetComponent<GameManager>();
         gameManager.StartGame();
         timer.enabled = true;
-        StartCoroutine(GameDuration(timer.starTime));
+        timerCoroutine = StartCoroutine(GameDuration(timer.starTime));
     }
 
     public void UIEnabler(bool control)
@@ -177,10 +178,20 @@ public class RaycastARScriptGame : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         timer.enabled = false;
+        EndGame();
 
+    }
+
+    public void EndGame()
+    {
         double descuentoValor = _foodPrice * (1 - (gameManager.GetPoints() * 0.05f * 0.01f));
         descuentoValor = Math.Floor(descuentoValor * 100) / 100;
 
+        if (timer.enabled)
+        {
+            StopCoroutine(timerCoroutine);
+            timer.enabled = false;
+        }
 
         string descuento = $"Descuento: {descuentoValor}$";
 

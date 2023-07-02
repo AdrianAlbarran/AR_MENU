@@ -27,3 +27,13 @@ MonoBehaviour:
     m_SpecifySize: 0
     m_Name: amumu
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5079308513151068048
+      m_GuidHigh: 15963559910995311538
+    m_SerializedTextureGuid:
+      m_GuidLow: 12359033212436673442
+      m_GuidHigh: 4570826363437403976
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: amumu
+    m_Texture: {fileID: 0}

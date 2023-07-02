@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 17
   speed: 13
+  isBomb: 0
+  prefab: {fileID: 8266580692744702168, guid: 5681dfb725f1d954ea0a5bed948dda6e, type: 3}
 --- !u!135 &7576921417696160068
 SphereCollider:
   m_ObjectHideFlags: 0

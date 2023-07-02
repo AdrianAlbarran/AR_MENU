@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 20
   speed: 15
+  isBomb: 0
+  prefab: {fileID: 8266580692744702168, guid: b7f7c8c5604885a4789b8f9dad21e008, type: 3}
 --- !u!65 &1552619509419552116
 BoxCollider:
   m_ObjectHideFlags: 0

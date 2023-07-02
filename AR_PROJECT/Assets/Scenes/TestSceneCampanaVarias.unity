@@ -1216,7 +1216,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -1704,8 +1704,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 344.63385, y: -25}
+  m_SizeDelta: {x: 289.2677, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992430606
 MonoBehaviour:
@@ -2556,7 +2556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2806,6 +2806,7 @@ MonoBehaviour:
   gameCanvas: {fileID: 1494454364}
   textCanvas: {fileID: 1976638170}
   drinksRaycastManager: {fileID: 1512040751}
+  placingDrinks: 0
 --- !u!114 &1512040749
 MonoBehaviour:
   m_ObjectHideFlags: 0
