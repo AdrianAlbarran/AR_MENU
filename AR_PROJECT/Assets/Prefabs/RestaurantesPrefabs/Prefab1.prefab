@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4030814453121316186}
   - component: {fileID: 4030814453121316187}
   m_Layer: 0
-  m_Name: amumu
+  m_Name: Prefab1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

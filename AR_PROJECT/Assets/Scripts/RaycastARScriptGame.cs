@@ -15,6 +15,8 @@ public class RaycastARScriptGame : MonoBehaviour
     public GameObject gameButton;
     public GameObject areaButton;
     public TextMeshProUGUI text;
+    public TextMeshProUGUI textExp1;
+    public TextMeshProUGUI textExp2;
 
     public WinnerPanel winnerPanel;
 
@@ -48,6 +50,9 @@ public class RaycastARScriptGame : MonoBehaviour
     private void OnEnable()
     {
         text.gameObject.SetActive(true);
+        textExp1.gameObject.SetActive(true);
+        textExp2.gameObject.SetActive(true);
+        
     }
 
     public void addObject()
@@ -130,6 +135,8 @@ public class RaycastARScriptGame : MonoBehaviour
     public void StartGame()
     {
         SetText(2);
+        textExp1.gameObject.SetActive(false);
+        textExp2.gameObject.SetActive(false);
         StartCoroutine(TextOnScreen());
         UIEnabler(false);
         gameManager = _spawned_object.GetComponent<GameManager>();
@@ -149,6 +156,8 @@ public class RaycastARScriptGame : MonoBehaviour
         {
             areaButton.SetActive(false);
             gameButton.SetActive(false);
+            textExp1.gameObject.SetActive(false);
+            textExp2.gameObject.SetActive(false);
         }
     }
 
